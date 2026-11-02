@@ -20,8 +20,8 @@ const mono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "zackseal89s-projects-agent",
-  description: "A Next.js starter for eve agents with AI Elements.",
+  title: "Customer Incident Copilot",
+  description: "Investigate fictional customer incidents with real AI and mock business data.",
 };
 
 // The page and Eve routes validate the generated app's Better Auth session.

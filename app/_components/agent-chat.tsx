@@ -34,7 +34,7 @@ import { cn } from "@/lib/utils";
 import { AgentMessage } from "./agent-message";
 import { WEB_CHAT_AGENT } from "@/app/eve-agent";
 
-const DEFAULT_AGENT_NAME = "zackseal89s-projects-agent";
+const DEFAULT_AGENT_NAME = "Incident Copilot";
 const AGENT_NAME = WEB_CHAT_AGENT ?? DEFAULT_AGENT_NAME;
 
 export function AgentChat({
@@ -156,7 +156,7 @@ export function AgentChat({
       <PromptInputTextarea
         disabled={isResuming}
         onChange={(event) => setHasInputText(event.currentTarget.value.trim().length > 0)}
-        placeholder="Send a message…"
+        placeholder="Ask about Acme checkout or Northstar dashboard…"
       />
       <ComposerAction
         hasInputText={hasInputText}
@@ -224,7 +224,7 @@ export function AgentChat({
       >
         {showConversationLayout ? null : (
           <div className="flex flex-col items-center gap-3 text-center">
-            <h1 className="font-medium text-5xl tracking-tighter">{AGENT_NAME}</h1>
+            <><h1 className="font-medium text-5xl tracking-tighter">{AGENT_NAME}</h1><p className="max-w-md text-sm text-muted-foreground">Investigate fictional incidents with real AI. Try “Investigate INC-1042” or “Investigate INC-1043”.</p></>
           </div>
         )}
         <div className="w-full">{composer}</div>
