@@ -1,35 +1,59 @@
-# zackseal89s-projects-agent
+# Incident Copilot
 
-This is an [eve](https://eve.dev) agent bootstrapped with [`eve init`](https://eve.dev/docs/reference/cli#eve-init).
+Incident Copilot is a demo assistant for investigating customer incidents using fictional incident data. It brings together mock tickets, logs, deployments, and account details to help an incident commander understand what happened and prepare a clear customer update.
 
-## Getting started
+> **Demo only:** All business records and connected systems are mock data. The language model is real. This project does not access or modify production systems. Saving a drafted customer reply to the mock outbox requires explicit approval.
 
-First, run the development server:
+## What it can do
+
+- Investigate the sample incidents **INC-1042** (Acme Retail checkout) and **INC-1043** (Northstar Health dashboard).
+- Gather related tickets, logs, deployment history, and account information from mock systems.
+- Summarize findings for an incident commander.
+- Draft customer communications and, with approval, save them to a mock outbox.
+
+## Tech stack
+
+- [eve](https://eve.dev) agent framework
+- Next.js, React, and TypeScript
+- Mock-systems MCP connection for demo incident records
+
+## Run locally
+
+Requires Node.js 24 and pnpm.
 
 ```bash
-eve dev
+pnpm install
+pnpm dev
 ```
 
-The development TUI opens an interactive session where you can send messages to your agent.
+This starts the Next.js app. To run the agent in eve's interactive development interface instead, use:
 
-Start by editing `agent/instructions.md` to define the agent's identity, purpose, tone, and response guidelines. Configure its model and runtime behavior in `agent/agent.ts`.
+```bash
+pnpm dev:eve
+```
 
-Add capabilities under `agent/`, including tools, connections, channels, skills, subagents, and schedules. eve reloads your changes as you work.
+## Useful commands
+
+| Command | Description |
+| --- | --- |
+| `pnpm dev` | Start the web app locally. |
+| `pnpm dev:eve` | Start the eve agent development interface. |
+| `pnpm build` | Build the web app. |
+| `pnpm build:eve` | Build the eve agent. |
+| `pnpm test` | Run the test suite. |
+| `pnpm typecheck` | Check TypeScript types. |
+| `pnpm eval` | Run agent evaluations. |
+| `pnpm deploy` | Deploy the agent with eve. |
+
+## Project layout
+
+- `agent/` — agent definition, instructions, tools, connections, and channels.
+- `app/` — Next.js application and API routes.
+- `evals/` — agent evaluations.
+- `tests/` — automated tests.
 
 ## Learn more
 
-To learn more about eve, explore these resources:
-
-- [eve documentation](https://eve.dev/docs) — learn about eve's features and authoring APIs.
-- [Build an Agent tutorial](https://eve.dev/docs/tutorial/first-agent) — build and deploy an agent step by step.
-- [eve on GitHub](https://github.com/vercel/eve) — view the source and contribute.
-
-## Deploy on Vercel
-
-Deploy your agent to [Vercel](https://vercel.com) from the project root:
-
-```bash
-eve deploy
-```
-
-`eve deploy` links a Vercel project if needed and deploys the agent to production. See the [eve deployment documentation](https://eve.dev/docs/guides/deployment/vercel) for authentication, environment variables, and deployment options.
+- [eve documentation](https://eve.dev/docs)
+- [Build an eve agent](https://eve.dev/docs/tutorial/first-agent)
+- [Deploy with eve](https://eve.dev/docs/guides/deployment/vercel)
